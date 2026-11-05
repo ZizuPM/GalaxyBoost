@@ -1,0 +1,160 @@
+{
+  "version": "2.0.0",
+  "description": "Base de datos universal de paquetes Wear OS y One UI Watch para optimización y debloat",
+  "profiles": {
+    "safe": {
+      "name": "1. Seguro (Telemetría, Diagnósticos y Reporte de Errores)",
+      "description": "Desactiva rastreadores de Samsung y Google, agentes de modo demostración en tiendas y servicios de error. Cero impacto visual o funcional.",
+      "packages": [
+        "com.samsung.android.dqagent",
+        "com.samsung.android.watch.selfdiagnostics",
+        "com.samsung.android.watch.runestone.app",
+        "com.google.android.apps.wearable.retailattractloop",
+        "com.sds.emm.cloud.knox.samsung",
+        "com.samsung.SMT",
+        "com.samsung.aasaservice",
+        "com.samsung.android.gru",
+        "com.google.android.feedback",
+        "com.android.printspooler",
+        "com.google.android.printservice.recommendation"
+      ]
+    },
+    "balanced": {
+      "name": "2. Equilibrado (Recomendado: Seguro + Bixby + Apps Secundarias)",
+      "description": "Incluye el perfil Seguro + desactiva Bixby completo (liberando el micrófono y ~100MB de RAM), Samsung Pay (para usuarios de Google Wallet), navegador web y reproductor de video.",
+      "packages": [
+        "com.samsung.android.dqagent",
+        "com.samsung.android.watch.selfdiagnostics",
+        "com.samsung.android.watch.runestone.app",
+        "com.google.android.apps.wearable.retailattractloop",
+        "com.sds.emm.cloud.knox.samsung",
+        "com.samsung.SMT",
+        "com.samsung.aasaservice",
+        "com.samsung.android.gru",
+        "com.google.android.feedback",
+        "com.android.printspooler",
+        "com.google.android.printservice.recommendation",
+        "com.samsung.android.bixby.agent",
+        "com.samsung.android.bixby.wakeup",
+        "com.samsung.android.samsungpay.gear",
+        "com.sec.android.app.sbrowser",
+        "com.samsung.android.video.wearable",
+        "com.samsung.android.wear.musictransfer",
+        "com.samsung.android.watch.watchface.endangeredanimal",
+        "com.samsung.android.watch.watchface.flowergarden",
+        "com.samsung.android.watch.watchface.superfiction",
+        "com.samsung.android.watch.watchface.livewallpaper",
+        "com.samsung.android.watch.watchface.aremoji",
+        "com.samsung.android.watch.watchface.bitmoji",
+        "com.samsung.android.watch.watchface.animal"
+      ]
+    },
+    "extreme": {
+      "name": "3. Máximo Rendimiento y Batería",
+      "description": "Incluye el perfil Equilibrado + desactiva utilidades de Samsung secundarias como grabadoras de notas si no se usan, SmartThings y servicios adicionales.",
+      "packages": [
+        "com.samsung.android.dqagent",
+        "com.samsung.android.watch.selfdiagnostics",
+        "com.samsung.android.watch.runestone.app",
+        "com.google.android.apps.wearable.retailattractloop",
+        "com.sds.emm.cloud.knox.samsung",
+        "com.samsung.SMT",
+        "com.samsung.aasaservice",
+        "com.samsung.android.gru",
+        "com.google.android.feedback",
+        "com.android.printspooler",
+        "com.google.android.printservice.recommendation",
+        "com.samsung.android.bixby.agent",
+        "com.samsung.android.bixby.wakeup",
+        "com.samsung.android.samsungpay.gear",
+        "com.sec.android.app.sbrowser",
+        "com.samsung.android.video.wearable",
+        "com.samsung.android.wear.musictransfer",
+        "com.samsung.android.watch.watchface.endangeredanimal",
+        "com.samsung.android.watch.watchface.flowergarden",
+        "com.samsung.android.watch.watchface.superfiction",
+        "com.samsung.android.watch.watchface.livewallpaper",
+        "com.samsung.android.watch.watchface.aremoji",
+        "com.samsung.android.watch.watchface.bitmoji",
+        "com.samsung.android.watch.watchface.animal",
+        "com.samsung.android.app.reminder",
+        "com.samsung.android.watch.worldclock",
+        "com.google.android.marvin.talkback"
+      ]
+    }
+  },
+  "package_details": {
+    "com.samsung.android.bixby.agent": {
+      "name": "Bixby Voice Agent",
+      "category": "Asistente",
+      "description": "Procesador principal del asistente de voz Bixby. Desactivar libera entre 80 y 120 MB de RAM.",
+      "safe_to_disable": true
+    },
+    "com.samsung.android.bixby.wakeup": {
+      "name": "Bixby Voice Wakeup",
+      "category": "Asistente",
+      "description": "Proceso de escucha activa permanente del micrófono para el comando 'Hi Bixby'. Desactivar ahorra batería sustancial.",
+      "safe_to_disable": true
+    },
+    "com.samsung.android.samsungpay.gear": {
+      "name": "Samsung Pay / Samsung Wallet",
+      "category": "Pagos",
+      "description": "Servicio de pagos de Samsung. Si utilizas Google Wallet (Billetera de Google), este servicio es redundante.",
+      "safe_to_disable": true
+    },
+    "com.samsung.android.dqagent": {
+      "name": "Samsung Diagnostic Quality Agent",
+      "category": "Telemetría",
+      "description": "Recopila estadísticas de caídas, errores y rendimiento para enviar a Samsung en segundo plano.",
+      "safe_to_disable": true
+    },
+    "com.samsung.android.watch.selfdiagnostics": {
+      "name": "Autodiagnósticos de Hardware",
+      "category": "Telemetría",
+      "description": "Ejecuta pruebas diagnósticas periódicas de hardware y sensores de forma oculta.",
+      "safe_to_disable": true
+    },
+    "com.samsung.android.watch.runestone.app": {
+      "name": "Samsung Rubin (Customization Service)",
+      "category": "Telemetría",
+      "description": "Analiza patrones y hábitos de uso del usuario para sugerir funciones.",
+      "safe_to_disable": true
+    },
+    "com.google.android.apps.wearable.retailattractloop": {
+      "name": "Retail Attract Loop",
+      "category": "Modo Tienda",
+      "description": "Bucle de demostración utilizado para vitrinas de tiendas departamentales.",
+      "safe_to_disable": true
+    },
+    "com.sds.emm.cloud.knox.samsung": {
+      "name": "Knox Cloud EMM",
+      "category": "Corporativo",
+      "description": "Agente para flotas corporativas empresariales.",
+      "safe_to_disable": true
+    },
+    "com.samsung.SMT": {
+      "name": "Samsung Text-to-Speech Engine",
+      "category": "Voz",
+      "description": "Motor de síntesis de voz de Samsung. Totalmente duplicado si se usa Google TTS.",
+      "safe_to_disable": true
+    },
+    "com.sec.android.app.sbrowser": {
+      "name": "Samsung Internet Browser",
+      "category": "Aplicaciones",
+      "description": "Navegador web completo para Wear OS. Consume mucha memoria en segundo plano.",
+      "safe_to_disable": true
+    },
+    "com.samsung.android.video.wearable": {
+      "name": "Reproductor de Video Samsung",
+      "category": "Multimedia",
+      "description": "Reproductor de video local para la pantalla del smartwatch.",
+      "safe_to_disable": true
+    },
+    "com.samsung.android.wear.musictransfer": {
+      "name": "Transferencia de Música Wi-Fi",
+      "category": "Multimedia",
+      "description": "Servicio de copia de archivos MP3 vía Wi-Fi desde el teléfono. Innecesario si se usa Spotify.",
+      "safe_to_disable": true
+    }
+  }
+}
