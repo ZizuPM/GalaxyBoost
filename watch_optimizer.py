@@ -248,7 +248,11 @@ def apply_screen_haptics():
     run_adb_shell("settings put system haptic_feedback_intensity 1")
     run_adb_shell("settings put system notification_vibration_intensity 1")
     run_adb_shell("settings put system ring_vibration_intensity 1")
+    run_adb_shell("settings put system accelerometer_rotation 0")
+    run_adb_shell("settings put system user_rotation 0")
+    run_adb_shell("settings put secure show_rotation_suggestions 0")
     print(f"  {Color.GREEN}[✓] Tiempo de espera de pantalla configurado a 20 segundos{Color.RESET}")
+    print(f"  {Color.GREEN}[✓] Bloqueo de rotación fijado (evita giro accidental a 4 orientaciones){Color.RESET}")
     print(f"  {Color.GREEN}[✓] Giro de muñeca desactivado (evita encendidos accidentales de alto brillo){Color.RESET}")
     print(f"  {Color.GREEN}[✓] Vibración de teclado y marcación desactivada (solo llamadas y alertas reales){Color.RESET}")
 
